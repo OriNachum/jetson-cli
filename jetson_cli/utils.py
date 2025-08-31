@@ -135,6 +135,11 @@ def ensure_root():
     if os.geteuid() != 0:
         raise PermissionError("This command requires root privileges. Please run with sudo.")
 
+def ensure_root():
+    """Ensure the script is running with root privileges."""
+    if os.geteuid() != 0:
+        raise PermissionError("This command requires root privileges. Please run with sudo.")
+
 def format_size(bytes_value):
     """Format bytes to human readable format."""
     for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
