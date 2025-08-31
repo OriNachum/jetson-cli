@@ -14,6 +14,8 @@ on:
         - patch
         - minor
         - major
+permissions:
+  contents: write  # Required for creating tags and releases
 
 jobs:
   release:
@@ -123,6 +125,7 @@ jobs:
         git push origin "v${{ steps.bump_version.outputs.new_version }}"
 
     - name: Create GitHub Release
+      id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

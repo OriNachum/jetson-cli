@@ -20,6 +20,17 @@ jetson-cli provides a streamlined, pure-Python interface for:
 ✅ **Interactive & Non-Interactive Modes**: Flexible operation modes  
 ✅ **Extensive Testing**: Unit tests for all major functionality  
 
+## Task list
+- [ ] Best practices compliation for jetson for humans and AI
+  - [ ] tools
+  - [ ] commands
+  - [ ] configurations 
+- [ ] docker images backup and restore scripts
+- [ ] GenAI integration on device, local or remote
+- [ ] Model inference setup recommendations
+- [ ] jetson-containers Package suite recommendations
+
+
 ## Installation
 
 ### From PyPI (Recommended)
@@ -29,7 +40,7 @@ pip install jetson-cli
 
 ### From Source
 ```bash
-git clone https://github.com/your-org/jetson-cli.git
+git clone https://github.com/orinachum/jetson-cli.git
 cd jetson-cli
 pip install -e .
 ```
