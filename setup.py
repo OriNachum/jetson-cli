@@ -10,25 +10,25 @@ with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 # Read version from __init__.py
 def get_version():
-    with open(os.path.join(this_directory, 'jetson_cli', '__init__.py'), 'r') as f:
+    with open(os.path.join(this_directory, 'jetson_jolt', '__init__.py'), 'r') as f:
         for line in f:
             if line.startswith('__version__'):
                 return line.split('=')[1].strip().strip('"').strip("'")
     return '0.1.0'
 
 setup(
-    name='jetson-cli',
+    name='jetson-jolt',
     version=get_version(),
     description='Command-line interface for NVIDIA Jetson setup and configuration',
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='Jetson Setup Team',
     author_email='support@jetson-setup.com',
-    url='https://github.com/your-org/jetson-setup',
+    url='https://github.com/OriNachum/jetson-jolt',
     packages=find_packages(),
     include_package_data=True,
     package_data={
-        'jetson_cli': ['scripts/*', 'config/*'],
+        'jetson_jolt': ['scripts/*', 'config/*'],
     },
     install_requires=[
         'click>=8.0.0',
@@ -40,7 +40,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'jetson-cli=jetson_cli.cli:main',
+            'jetson-jolt=jetson_jolt.cli:main',
         ],
     },
     classifiers=[
@@ -63,8 +63,8 @@ setup(
     python_requires='>=3.8',
     keywords='jetson nvidia embedded ai ml docker containers setup',
     project_urls={
-        'Documentation': 'https://github.com/your-org/jetson-setup/blob/main/README.md',
-        'Bug Reports': 'https://github.com/your-org/jetson-setup/issues',
-        'Source': 'https://github.com/your-org/jetson-setup',
+        'Documentation': 'https://github.com/OriNachum/jetson-jolt/blob/main/README.md',
+        'Bug Reports': 'https://github.com/OriNachum/jetson-jolt/issues',
+        'Source': 'https://github.com/OriNachum/jetson-jolt',
     }
 )

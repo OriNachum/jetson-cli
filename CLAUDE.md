@@ -8,17 +8,17 @@ This repository is a Jetson setup system that includes the `jetson-containers` f
 
 ## Common Commands
 
-### Jetson CLI (Recommended)
+### Jetson Jolt (Recommended)
 ```bash
 # Install the CLI package globally
-pip install jetson-cli
+pip install jetson-jolt
 
 # System operations
-jetson-cli probe                        # analyze system configuration
-jetson-cli init                         # create environment profile
-jetson-cli setup                        # complete system setup
-jetson-cli configure docker             # configure specific components
-jetson-cli status                       # show system status
+jetson-jolt probe                        # analyze system configuration
+jetson-jolt init                         # create environment profile
+jetson-jolt setup                        # complete system setup
+jetson-jolt configure docker             # configure specific components
+jetson-jolt status                       # show system status
 ```
 
 ### Container Building
@@ -67,7 +67,7 @@ sudo docker run --runtime nvidia -it --rm --network=host dustynv/l4t-pytorch:r36
 - **`scripts/`**: System configuration scripts for Jetson devices
   - Environment setup, Docker configuration, hardware tuning
 
-- **`jetson_cli/`**: Python CLI package for system management
+- **`jetson_jolt/`**: Python CLI package for system management
   - `cli.py`: Main Click-based command interface
   - `utils.py`: Platform detection and script execution utilities
   - Provides user-friendly interface to underlying scripts
@@ -110,7 +110,7 @@ Test scripts are typically included with each package as `test.py` or `test.sh` 
 pip install -e .
 
 # Production installation
-pip install jetson-cli
+pip install jetson-jolt
 ```
 
 ### GitHub Actions Pipelines
@@ -119,8 +119,8 @@ pip install jetson-cli
 - **Installation Testing**: Validates package installation across environments
 
 ### CLI Commands Reference
-- `jetson-cli probe [--output table|json|yaml] [--save file]`: System analysis
-- `jetson-cli init [--profile-name name] [--force]`: Environment profile creation  
-- `jetson-cli setup [--skip-docker] [--skip-swap] [--interactive]`: Complete setup
-- `jetson-cli configure <docker|swap|ssd|power|gui>`: Component configuration
-- `jetson-cli status [--format table|json]`: System status overview
+- `jetson-jolt probe [--output table|json|yaml] [--save file]`: System analysis
+- `jetson-jolt init [--profile-name name] [--force]`: Environment profile creation  
+- `jetson-jolt setup [--skip-docker] [--skip-swap] [--interactive]`: Complete setup
+- `jetson-jolt configure <docker|swap|ssd|power|gui>`: Component configuration
+- `jetson-jolt status [--format table|json]`: System status overview

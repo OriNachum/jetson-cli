@@ -9,15 +9,15 @@ This release includes:
 
 ### Installation
 ```bash
-pip install jetson-cli==0.7.0
+pip install jetson-jolt==0.7.0
 ```
 
 ### Usage
 ```bash
-jetson-cli --help
-jetson-cli probe
-jetson-cli init
-jetson-cli setup
+jetson-jolt --help
+jetson-jolt probe
+jetson-jolt init
+jetson-jolt setup
 ```
 
-**Full Changelog**: https://github.com/OriNachum/jetson-cli/compare/v0.6.0...v0.7.0
+**Full Changelog**: https://github.com/OriNachum/jetson-jolt/compare/v0.6.0...v0.7.0

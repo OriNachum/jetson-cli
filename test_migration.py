@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Test script for the migrated jetson-cli SDK modules
+Test script for the migrated jetson-jolt SDK modules
 """
 
 import sys
 import os
 from pathlib import Path
 
-# Add the jetson_cli package to the path
+# Add the jetson_jolt package to the path
 sys.path.insert(0, str(Path(__file__).parent))
 
 def test_imports():
@@ -15,7 +15,7 @@ def test_imports():
     print("Testing imports...")
     
     try:
-        from jetson_cli.sdk import SystemManager, DockerManager, StorageManager, PowerManager, GUIManager
+        from jetson_jolt.sdk import SystemManager, DockerManager, StorageManager, PowerManager, GUIManager
         print("✅ All SDK modules imported successfully")
         return True
     except ImportError as e:
@@ -27,7 +27,7 @@ def test_system_manager():
     print("\nTesting SystemManager...")
     
     try:
-        from jetson_cli.sdk import SystemManager
+        from jetson_jolt.sdk import SystemManager
         
         system_manager = SystemManager()
         
@@ -53,7 +53,7 @@ def test_docker_manager():
     print("\nTesting DockerManager...")
     
     try:
-        from jetson_cli.sdk import DockerManager
+        from jetson_jolt.sdk import DockerManager
         
         docker_manager = DockerManager()
         
@@ -75,7 +75,7 @@ def test_storage_manager():
     print("\nTesting StorageManager...")
     
     try:
-        from jetson_cli.sdk import StorageManager
+        from jetson_jolt.sdk import StorageManager
         
         storage_manager = StorageManager()
         
@@ -97,7 +97,7 @@ def test_power_manager():
     print("\nTesting PowerManager...")
     
     try:
-        from jetson_cli.sdk import PowerManager
+        from jetson_jolt.sdk import PowerManager
         
         power_manager = PowerManager()
         
@@ -119,7 +119,7 @@ def test_gui_manager():
     print("\nTesting GUIManager...")
     
     try:
-        from jetson_cli.sdk import GUIManager
+        from jetson_jolt.sdk import GUIManager
         
         gui_manager = GUIManager()
         
@@ -138,7 +138,7 @@ def test_gui_manager():
 
 def main():
     """Run all tests."""
-    print("=== Jetson CLI SDK Migration Test ===\n")
+    print("=== Jetson Jolt SDK Migration Test ===\n")
     
     tests = [
         test_imports,

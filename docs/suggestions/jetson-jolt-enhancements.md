@@ -1,4 +1,4 @@
-# Suggestions: Jetson CLI Enhancements
+# Suggestions: Jetson Jolt Enhancements
 
 **Date**: 2025-07-26  
 **Priority**: Medium  
@@ -6,7 +6,7 @@
 
 ## Overview
 
-Additional features and improvements for the jetson-cli package to enhance user experience and functionality beyond the core requirements.
+Additional features and improvements for the jetson-jolt package to enhance user experience and functionality beyond the core requirements.
 
 ## Suggested Enhancements
 
@@ -14,11 +14,11 @@ Additional features and improvements for the jetson-cli package to enhance user 
 
 ```bash
 # Container operations
-jetson-cli containers list                    # List available packages
-jetson-cli containers build pytorch          # Build specific container
-jetson-cli containers run pytorch            # Run container
-jetson-cli containers clean                  # Clean up old images
-jetson-cli containers update                 # Update container definitions
+jetson-jolt containers list                    # List available packages
+jetson-jolt containers build pytorch          # Build specific container
+jetson-jolt containers run pytorch            # Run container
+jetson-jolt containers clean                  # Clean up old images
+jetson-jolt containers update                 # Update container definitions
 ```
 
 **Implementation**: Integrate with the existing jetson-containers framework
@@ -28,11 +28,11 @@ jetson-cli containers update                 # Update container definitions
 
 ```bash
 # System monitoring
-jetson-cli monitor                           # Real-time system monitoring
-jetson-cli monitor --log /var/log/jetson.log # Log monitoring data
-jetson-cli diagnostics                       # Run comprehensive diagnostics
-jetson-cli health                           # Quick health check
-jetson-cli benchmark                        # Performance benchmarking
+jetson-jolt monitor                           # Real-time system monitoring
+jetson-jolt monitor --log /var/log/jetson.log # Log monitoring data
+jetson-jolt diagnostics                       # Run comprehensive diagnostics
+jetson-jolt health                           # Quick health check
+jetson-jolt benchmark                        # Performance benchmarking
 ```
 
 **Features**:
@@ -46,11 +46,11 @@ jetson-cli benchmark                        # Performance benchmarking
 
 ```bash
 # Configuration profiles
-jetson-cli config create --name production   # Create config profile
-jetson-cli config apply production          # Apply config profile
-jetson-cli config backup                    # Backup current configuration
-jetson-cli config restore backup.json       # Restore from backup
-jetson-cli config diff production staging   # Compare configurations
+jetson-jolt config create --name production   # Create config profile
+jetson-jolt config apply production          # Apply config profile
+jetson-jolt config backup                    # Backup current configuration
+jetson-jolt config restore backup.json       # Restore from backup
+jetson-jolt config diff production staging   # Compare configurations
 ```
 
 **Features**:
@@ -63,11 +63,11 @@ jetson-cli config diff production staging   # Compare configurations
 
 ```bash
 # Development environments
-jetson-cli env create ml-project             # Create isolated environment
-jetson-cli env activate ml-project          # Activate environment
-jetson-cli env install pytorch tensorflow   # Install packages in environment
-jetson-cli env export requirements.txt      # Export environment
-jetson-cli env clone ml-project ml-project-v2 # Clone environment
+jetson-jolt env create ml-project             # Create isolated environment
+jetson-jolt env activate ml-project          # Activate environment
+jetson-jolt env install pytorch tensorflow   # Install packages in environment
+jetson-jolt env export requirements.txt      # Export environment
+jetson-jolt env clone ml-project ml-project-v2 # Clone environment
 ```
 
 **Benefits**:
@@ -79,12 +79,12 @@ jetson-cli env clone ml-project ml-project-v2 # Clone environment
 
 ```bash
 # Hardware optimization
-jetson-cli optimize --profile ml            # Apply ML optimization profile
-jetson-cli optimize --profile inference     # Apply inference optimization
-jetson-cli optimize --profile development   # Apply development profile
-jetson-cli optimize reset                   # Reset to default settings
-jetson-cli fan control auto                 # Automatic fan control
-jetson-cli power mode max                   # Set maximum power mode
+jetson-jolt optimize --profile ml            # Apply ML optimization profile
+jetson-jolt optimize --profile inference     # Apply inference optimization
+jetson-jolt optimize --profile development   # Apply development profile
+jetson-jolt optimize reset                   # Reset to default settings
+jetson-jolt fan control auto                 # Automatic fan control
+jetson-jolt power mode max                   # Set maximum power mode
 ```
 
 **Profiles**:
@@ -97,12 +97,12 @@ jetson-cli power mode max                   # Set maximum power mode
 
 ```bash
 # System maintenance
-jetson-cli update                           # Update system packages
-jetson-cli update --jetpack                # Update JetPack components
-jetson-cli maintenance                      # Run maintenance tasks
-jetson-cli cleanup                          # Clean temporary files/caches
-jetson-cli backup --system                 # System backup
-jetson-cli restore system-backup.tar.gz    # System restore
+jetson-jolt update                           # Update system packages
+jetson-jolt update --jetpack                # Update JetPack components
+jetson-jolt maintenance                      # Run maintenance tasks
+jetson-jolt cleanup                          # Clean temporary files/caches
+jetson-jolt backup --system                 # System backup
+jetson-jolt restore system-backup.tar.gz    # System restore
 ```
 
 **Features**:
@@ -115,10 +115,10 @@ jetson-cli restore system-backup.tar.gz    # System restore
 
 ```bash
 # Plugin system
-jetson-cli plugin install ros-tools         # Install ROS plugin
-jetson-cli plugin list                      # List installed plugins
-jetson-cli plugin update                    # Update all plugins
-jetson-cli ros workspace create             # ROS-specific command from plugin
+jetson-jolt plugin install ros-tools         # Install ROS plugin
+jetson-jolt plugin list                      # List installed plugins
+jetson-jolt plugin update                    # Update all plugins
+jetson-jolt ros workspace create             # ROS-specific command from plugin
 ```
 
 **Benefits**:
@@ -130,7 +130,7 @@ jetson-cli ros workspace create             # ROS-specific command from plugin
 ### 8. Interactive Shell Mode
 
 ```bash
-jetson-cli shell                            # Enter interactive mode
+jetson-jolt shell                            # Enter interactive mode
 ```
 
 **Features**:
@@ -144,11 +144,11 @@ jetson-cli shell                            # Enter interactive mode
 
 ```bash
 # Remote operations
-jetson-cli remote connect jetson-01         # Connect to remote Jetson
-jetson-cli remote list                      # List registered devices
-jetson-cli remote deploy config.yaml       # Deploy configuration remotely
-jetson-cli remote monitor --all             # Monitor multiple devices
-jetson-cli cluster scale --nodes 4          # Cluster management
+jetson-jolt remote connect jetson-01         # Connect to remote Jetson
+jetson-jolt remote list                      # List registered devices
+jetson-jolt remote deploy config.yaml       # Deploy configuration remotely
+jetson-jolt remote monitor --all             # Monitor multiple devices
+jetson-jolt cluster scale --nodes 4          # Cluster management
 ```
 
 **Use Cases**:
@@ -161,11 +161,11 @@ jetson-cli cluster scale --nodes 4          # Cluster management
 
 ```bash
 # Integration with external tools
-jetson-cli jupyter start                    # Start Jupyter server
-jetson-cli vscode setup                     # Configure VS Code for Jetson
-jetson-cli ssh setup                        # Configure SSH access
-jetson-cli git config                       # Git configuration for development
-jetson-cli docker registry login            # Container registry management
+jetson-jolt jupyter start                    # Start Jupyter server
+jetson-jolt vscode setup                     # Configure VS Code for Jetson
+jetson-jolt ssh setup                        # Configure SSH access
+jetson-jolt git config                       # Git configuration for development
+jetson-jolt docker registry login            # Container registry management
 ```
 
 ## Implementation Priorities

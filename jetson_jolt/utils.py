@@ -7,7 +7,7 @@ import platform
 from pathlib import Path
 
 def get_package_root():
-    """Get the root directory of the jetson-cli package."""
+    """Get the root directory of the jetson-jolt package."""
     return Path(__file__).parent
 
 def get_script_path(script_name):

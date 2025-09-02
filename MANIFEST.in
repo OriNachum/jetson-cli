@@ -4,9 +4,9 @@ include CLAUDE.md
 include pyproject.toml
 include setup.py
 
-recursive-include jetson_cli *.py
-recursive-include jetson_cli/scripts *.sh
-recursive-include jetson_cli/config *.yaml *.yml *.json
+recursive-include jetson_jolt *.py
+recursive-include jetson_jolt/scripts *.sh
+recursive-include jetson_jolt/config *.yaml *.yml *.json
 
 recursive-include scripts *.sh *.yaml *.yml
 recursive-include docs *.md

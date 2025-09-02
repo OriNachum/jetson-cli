@@ -63,13 +63,13 @@ jobs:
     - name: Get current version
       id: current_version
       run: |
-        echo "version=$(python -c "import jetson_cli; print(jetson_cli.__version__)")" >> $GITHUB_OUTPUT
+        echo "version=$(python -c "import jetson_jolt; print(jetson_jolt.__version__)")" >> $GITHUB_OUTPUT
 
     - name: Bump version
       id: bump_version
       run: |
-        bump2version --current-version ${{ steps.current_version.outputs.version }} ${{ steps.version_bump.outputs.bump_type }} jetson_cli/__init__.py
-        NEW_VERSION=$(python -c "import jetson_cli; print(jetson_cli.__version__)")
+        bump2version --current-version ${{ steps.current_version.outputs.version }} ${{ steps.version_bump.outputs.bump_type }} jetson_jolt/__init__.py
+        NEW_VERSION=$(python -c "import jetson_jolt; print(jetson_jolt.__version__)")
         echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
 
     - name: Update setup.py version (if needed)
@@ -102,15 +102,15 @@ jobs:
         
         ### Installation
         ```bash
-        pip install jetson-cli==${{ steps.bump_version.outputs.new_version }}
+        pip install jetson-jolt==${{ steps.bump_version.outputs.new_version }}
         ```
         
         ### Usage
         ```bash
-        jetson-cli --help
-        jetson-cli probe
-        jetson-cli init
-        jetson-cli setup
+        jetson-jolt --help
+        jetson-jolt probe
+        jetson-jolt init
+        jetson-jolt setup
         ```
         
         **Full Changelog**: https://github.com/${{ github.repository }}/compare/v${{ steps.current_version.outputs.version }}...v${{ steps.bump_version.outputs.new_version }}
@@ -149,6 +149,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dist/jetson_cli-${{ steps.bump_version.outputs.new_version }}-py3-none-any.whl
-        asset_name: jetson_cli-${{ steps.bump_version.outputs.new_version }}-py3-none-any.whl
+        asset_path: ./dist/jetson_jolt-${{ steps.bump_version.outputs.new_version }}-py3-none-any.whl
+        asset_name: jetson_jolt-${{ steps.bump_version.outputs.new_version }}-py3-none-any.whl
         asset_content_type: application/zip

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Jetson CLI SDK Module
+Jetson Jolt SDK Module
 
 This module provides Python implementations for Jetson system configuration
 and management, replacing the shell scripts with modular Python functions.

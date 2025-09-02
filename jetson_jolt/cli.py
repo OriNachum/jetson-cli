@@ -20,7 +20,7 @@ console = Console()
 def print_version(ctx, param, value):
     if not value or ctx.resilient_parsing:
         return
-    click.echo(f'jetson-cli version {__version__}')
+    click.echo(f'jetson-jolt version {__version__}')
     ctx.exit()
 
 @click.group()
@@ -29,12 +29,12 @@ def print_version(ctx, param, value):
 @click.option('--verbose', '-v', is_flag=True, help='Enable verbose output')
 @click.pass_context
 def cli(ctx, verbose):
-    """Jetson CLI - Command-line interface for NVIDIA Jetson setup and configuration"""
+    """Jetson Jolt - Command-line interface for NVIDIA Jetson setup and configuration"""
     ctx.ensure_object(dict)
     ctx.obj['verbose'] = verbose
     
     # Check if running on Jetson platform
-    if not check_jetson_platform() and not os.environ.get('JETSON_CLI_SKIP_PLATFORM_CHECK'):
+    if not check_jetson_platform() and not os.environ.get('JETSON_JOLT_SKIP_PLATFORM_CHECK'):
         console.print("[yellow]Warning: Not running on detected Jetson platform. Some features may not work correctly.[/yellow]")
 
 @cli.command()

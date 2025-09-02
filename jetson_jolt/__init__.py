@@ -1,5 +1,5 @@
 """
-Jetson CLI - Command-line interface for NVIDIA Jetson setup and configuration
+Jetson Jolt - Command-line interface for NVIDIA Jetson setup and configuration
 """
 
 __version__ = "0.7.0"
