@@ -1,6 +1,6 @@
 ## What's Changed
 
-### Version 0.7.0
+### Version 0.8.0
 
 This release includes:
 - Automated version bump (minor)
@@ -9,7 +9,7 @@ This release includes:
 
 ### Installation
 ```bash
-pip install jetson-jolt==0.7.0
+pip install jetson-jolt==0.8.0
 ```
 
 ### Usage
@@ -20,4 +20,4 @@ jetson-jolt init
 jetson-jolt setup
 ```
 
-**Full Changelog**: https://github.com/OriNachum/jetson-jolt/compare/v0.6.0...v0.7.0
+**Full Changelog**: https://github.com/OriNachum/jetson-jolt/compare/v0.7.0...v0.8.0
