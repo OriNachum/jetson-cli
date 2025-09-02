@@ -41,6 +41,7 @@ setup(
     entry_points={
         'console_scripts': [
             'jetson-jolt=jetson_jolt.cli:main',
+            'jj=jetson_jolt.cli:main',
         ],
     },
     classifiers=[
