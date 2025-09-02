@@ -32,26 +32,26 @@ jobs:
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        flake8 jetson_cli --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 jetson_jolt --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 jetson_cli --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        flake8 jetson_jolt --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
     - name: Check code formatting with black
       run: |
-        black --check jetson_cli
+        black --check jetson_jolt
 
     - name: Check import sorting with isort
       run: |
-        isort --check-only jetson_cli
+        isort --check-only jetson_jolt
 
     - name: Test CLI installation
       run: |
-        jetson-cli --version
-        jetson-cli --help
+        jetson-jolt --version
+        jetson-jolt --help
 
     - name: Run tests with pytest
       run: |
-        pytest tests/ --cov=jetson_cli --cov-report=xml
+        pytest tests/ --cov=jetson_jolt --cov-report=xml
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
@@ -85,7 +85,7 @@ jobs:
     - name: Run Bandit Security Scan
       uses: securecodewarrior/github-action-bandit@v1
       with:
-        directory: jetson_cli
+        directory: jetson_jolt
         exit_zero: false
         severity: medium
         confidence: medium

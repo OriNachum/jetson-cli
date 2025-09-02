@@ -1,7 +1,7 @@
 # _config.yml
-title: Jetson CLI
+title: Jetson Jolt
 description: A comprehensive CLI tool for setting up NVIDIA Jetson devices and building containerized AI/ML applications using the jetson-containers framework.
-baseurl: "/jetson-cli" # Or "" if it's a user/org page like your-username.github.io
+baseurl: "/jetson-jolt" # Or "" if it's a user/org page like your-username.github.io
 url: "https://orinachum.github.io"
 
 plugins:

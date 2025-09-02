@@ -20,27 +20,27 @@ jobs:
 
     - name: Install from PyPI
       run: |
-        pip install jetson-cli
+        pip install jetson-jolt
 
     - name: Test CLI functionality
       run: |
-        jetson-cli --version
-        jetson-cli --help
+        jetson-jolt --version
+        jetson-jolt --help
         
         # Test each command help
-        jetson-cli probe --help
-        jetson-cli init --help
-        jetson-cli setup --help
-        jetson-cli configure --help
-        jetson-cli status --help
+        jetson-jolt probe --help
+        jetson-jolt init --help
+        jetson-jolt setup --help
+        jetson-jolt configure --help
+        jetson-jolt status --help
 
     - name: Test CLI with platform check disabled
       env:
-        JETSON_CLI_SKIP_PLATFORM_CHECK: "1"
+        JETSON_JOLT_SKIP_PLATFORM_CHECK: "1"
       run: |
         # Test commands that don't require actual Jetson hardware
-        jetson-cli status --format json || echo "Status command tested"
-        jetson-cli --version
+        jetson-jolt status --format json || echo "Status command tested"
+        jetson-jolt --version
 
   test-docker-install:
     runs-on: ubuntu-latest
@@ -60,24 +60,24 @@ jobs:
             sudo \
             && rm -rf /var/lib/apt/lists/*
         
-        # Install jetson-cli
-        RUN pip install jetson-cli
+        # Install jetson-jolt
+        RUN pip install jetson-jolt
         
         # Test installation
-        RUN jetson-cli --version
+        RUN jetson-jolt --version
         
         # Set environment to skip platform checks
-        ENV JETSON_CLI_SKIP_PLATFORM_CHECK=1
+        ENV JETSON_JOLT_SKIP_PLATFORM_CHECK=1
         
-        CMD ["jetson-cli", "--help"]
+        CMD ["jetson-jolt", "--help"]
         EOF
         
-        docker build -f Dockerfile.test -t jetson-cli-test .
+        docker build -f Dockerfile.test -t jetson-jolt-test .
 
     - name: Test Docker installation
       run: |
-        docker run --rm jetson-cli-test jetson-cli --version
-        docker run --rm jetson-cli-test jetson-cli --help
+        docker run --rm jetson-jolt-test jetson-jolt --version
+        docker run --rm jetson-jolt-test jetson-jolt --help
 
   notify-success:
     needs: [test-pip-install, test-docker-install]
@@ -88,4 +88,4 @@ jobs:
     - name: Notify Success
       run: |
         echo "✅ All installation tests passed!"
-        echo "jetson-cli is ready for users to install via: pip install jetson-cli"
+        echo "jetson-jolt is ready for users to install via: pip install jetson-jolt"

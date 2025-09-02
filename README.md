@@ -1,10 +1,10 @@
-# jetson-cli
+# jetson-jolt
 
 A comprehensive Python CLI tool for setting up NVIDIA Jetson devices and building containerized AI/ML applications.
 
 ## Overview
 
-jetson-cli provides a streamlined, pure-Python interface for:
+jetson-jolt provides a streamlined, pure-Python interface for:
 - Analyzing and configuring Jetson hardware
 - Setting up development environments  
 - Managing Docker, storage, power, and GUI configurations
@@ -35,13 +35,13 @@ jetson-cli provides a streamlined, pure-Python interface for:
 
 ### From PyPI (Recommended)
 ```bash
-pip install jetson-cli
+pip install jetson-jolt
 ```
 
 ### From Source
 ```bash
-git clone https://github.com/orinachum/jetson-cli.git
-cd jetson-cli
+git clone https://github.com/orinachum/jetson-jolt.git
+cd jetson-jolt
 pip install -e .
 ```
 
@@ -49,57 +49,57 @@ pip install -e .
 
 1. **Analyze your system**:
    ```bash
-   jetson-cli probe
+   jetson-jolt probe
    ```
 
 2. **Initialize environment**:
    ```bash
-   jetson-cli init
+   jetson-jolt init
    ```
 
 3. **Complete setup**:
    ```bash
-   jetson-cli setup
+   jetson-jolt setup
    ```
 
 ## Commands
 
 ### System Analysis
 ```bash
-jetson-cli probe                        # Show system configuration
-jetson-cli probe --output json          # Output as JSON
-jetson-cli probe --save config.yaml     # Save to file
-jetson-cli probe --tests docker,swap    # Run specific tests only
+jetson-jolt probe                        # Show system configuration
+jetson-jolt probe --output json          # Output as JSON
+jetson-jolt probe --save config.yaml     # Save to file
+jetson-jolt probe --tests docker,swap    # Run specific tests only
 ```
 
 ### Environment Setup
 ```bash
-jetson-cli init                         # Create environment profile
-jetson-cli init --profile-name dev      # Custom profile name
-jetson-cli init --force                 # Overwrite existing profile
+jetson-jolt init                         # Create environment profile
+jetson-jolt init --profile-name dev      # Custom profile name
+jetson-jolt init --force                 # Overwrite existing profile
 ```
 
 ### System Configuration
 ```bash
-jetson-cli setup                        # Complete system setup
-jetson-cli setup --skip-docker          # Skip Docker configuration
-jetson-cli setup --interactive          # Interactive mode
-jetson-cli setup --non-interactive      # Automated mode
+jetson-jolt setup                        # Complete system setup
+jetson-jolt setup --skip-docker          # Skip Docker configuration
+jetson-jolt setup --interactive          # Interactive mode
+jetson-jolt setup --non-interactive      # Automated mode
 ```
 
 ### Component Management
 ```bash
-jetson-cli configure docker             # Configure Docker daemon
-jetson-cli configure swap               # Setup swap file
-jetson-cli configure ssd                # Configure SSD storage
-jetson-cli configure power              # Power management settings
-jetson-cli configure gui                # GUI environment setup
+jetson-jolt configure docker             # Configure Docker daemon
+jetson-jolt configure swap               # Setup swap file
+jetson-jolt configure ssd                # Configure SSD storage
+jetson-jolt configure power              # Power management settings
+jetson-jolt configure gui                # GUI environment setup
 ```
 
 ### Status Monitoring
 ```bash
-jetson-cli status                       # Show system status table
-jetson-cli status --format json         # JSON output format
+jetson-jolt status                       # Show system status table
+jetson-jolt status --format json         # JSON output format
 ```
 
 ## Configuration Components
@@ -133,7 +133,7 @@ jetson-cli status --format json         # JSON output format
 The CLI is built on a modular SDK that can be used programmatically:
 
 ```python
-from jetson_cli.sdk import SystemManager, DockerManager, StorageManager
+from jetson_jolt.sdk import SystemManager, DockerManager, StorageManager
 
 # System analysis
 system_manager = SystemManager()
@@ -155,54 +155,54 @@ storage_info = storage_manager.get_storage_info()
 ### Complete Jetson Setup Workflow
 ```bash
 # 1. Analyze hardware and software configuration
-jetson-cli probe --save system-info.json
+jetson-jolt probe --save system-info.json
 
 # 2. Create development environment profile
-jetson-cli init --profile-name ml-dev
+jetson-jolt init --profile-name ml-dev
 
 # 3. Configure the system for AI/ML development
-jetson-cli setup
+jetson-jolt setup
 
 # 4. Verify everything is working
-jetson-cli status
+jetson-jolt status
 
 # 5. Configure specific components as needed
-jetson-cli configure power  # Set optimal power mode
-jetson-cli configure ssd    # Setup external storage
+jetson-jolt configure power  # Set optimal power mode
+jetson-jolt configure ssd    # Setup external storage
 ```
 
 ### Selective Component Configuration
 ```bash
 # Configure only Docker (skip other components)
-jetson-cli configure docker
+jetson-jolt configure docker
 
 # Setup additional swap space
-jetson-cli configure swap
+jetson-jolt configure swap
 
 # Configure external SSD storage
-jetson-cli configure ssd --interactive
+jetson-jolt configure ssd --interactive
 
 # Set power mode for maximum performance
-jetson-cli configure power
+jetson-jolt configure power
 ```
 
 ### System Analysis and Monitoring
 ```bash
 # Comprehensive system probe
-jetson-cli probe --output json --save analysis.json
+jetson-jolt probe --output json --save analysis.json
 
 # Monitor specific components
-jetson-cli probe --tests docker_installed,nvme_mount,power_mode
+jetson-jolt probe --tests docker_installed,nvme_mount,power_mode
 
 # Check system status
-jetson-cli status --format table
+jetson-jolt status --format table
 ```
 
 ## Architecture
 
 ```
-jetson-cli/
-├── jetson_cli/
+jetson-jolt/
+├── jetson_jolt/
 │   ├── cli.py              # Click-based CLI interface
 │   ├── utils.py            # Utility functions
 │   └── sdk/                # Python SDK modules

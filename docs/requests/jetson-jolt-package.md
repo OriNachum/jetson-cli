@@ -1,4 +1,4 @@
-# Request: Jetson CLI Package Development
+# Request: Jetson Jolt Package Development
 
 **Date**: 2025-07-26  
 **Status**: In Progress  
@@ -6,41 +6,41 @@
 
 ## Overview
 
-Create a `jetson-cli` pip package that provides a command-line interface for NVIDIA Jetson setup and configuration, with automated GitHub pipelines for deployment and release management.
+Create a `jetson-jolt` pip package that provides a command-line interface for NVIDIA Jetson setup and configuration, with automated GitHub pipelines for deployment and release management.
 
 ## Requirements
 
 ### Core CLI Commands
 
-1. **`jetson-cli probe`** - System probing and analysis
+1. **`jetson-jolt probe`** - System probing and analysis
    - Maps to: `scripts/probe-system.sh`
    - Output formats: table, JSON, YAML
    - Save results to file option
 
-2. **`jetson-cli init`** - Environment profile creation
+2. **`jetson-jolt init`** - Environment profile creation
    - Maps to: `scripts/create-env-profile.sh`
    - Custom profile naming
    - Force recreate option
 
-3. **`jetson-cli setup`** - Complete system setup
+3. **`jetson-jolt setup`** - Complete system setup
    - Maps to: `scripts/setup-system.sh`
    - Interactive/non-interactive modes
    - Skip individual components (docker, swap, ssd)
 
-4. **`jetson-cli configure <component>`** - Individual component configuration
+4. **`jetson-jolt configure <component>`** - Individual component configuration
    - Components: docker, swap, ssd, power, gui
    - Maps to respective `configure-*.sh` scripts
 
-5. **`jetson-cli status`** - System status overview
+5. **`jetson-jolt status`** - System status overview
    - Show current configuration state
    - Multiple output formats
 
 ### Package Structure
 
 ```
-jetson-cli/
+jetson-jolt/
 ├── setup.py                    # Package configuration
-├── jetson_cli/
+├── jetson_jolt/
 │   ├── __init__.py             # Version and package info
 │   ├── cli.py                  # Main CLI interface using Click
 │   ├── utils.py                # Utility functions
@@ -133,7 +133,7 @@ jetson-cli/
 ## Success Criteria
 
 1. **Functional**: All CLI commands work correctly on Jetson platforms
-2. **Installable**: `pip install jetson-cli` works globally
+2. **Installable**: `pip install jetson-jolt` works globally
 3. **Automated**: Releases happen automatically on main branch merges
 4. **Tested**: Comprehensive test coverage and CI validation
 5. **Documented**: Clear usage instructions and API documentation

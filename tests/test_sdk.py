@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-Unit tests for the Jetson CLI SDK modules
+Unit tests for the Jetson Jolt SDK modules
 """
 
 import unittest
 import sys
 from pathlib import Path
 
-# Add the jetson_cli package to the path
+# Add the jetson_jolt package to the path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from jetson_cli.sdk import SystemManager, DockerManager, StorageManager, PowerManager, GUIManager
+from jetson_jolt.sdk import SystemManager, DockerManager, StorageManager, PowerManager, GUIManager
 
 
 class TestSystemManager(unittest.TestCase):
